@@ -1,74 +1,109 @@
-# recall
+# Recall
 
-This project was created with [Better-T-Stack](https://github.com/AmanVarshney01/create-better-t-stack), a modern TypeScript stack that combines Next.js, Self, ORPC, and more.
+> Turn what you save into who you become.
 
-## Features
+Recall is a minimal daily reflection tool. It watches what you save, surfaces one thing at the right moment, and asks you one question about it. No dashboards. No organisation. No noise. Just you and something you once found worth keeping.
 
-- **TypeScript** - For type safety and improved developer experience
-- **Next.js** - Full-stack React framework
-- **TailwindCSS** - Utility-first CSS for rapid UI development
-- **shadcn/ui** - Reusable UI components
-- **oRPC** - End-to-end type-safe APIs with OpenAPI integration
-- **Prisma** - TypeScript-first ORM
-- **PostgreSQL** - Database engine
-- **Authentication** - Better-Auth
-- **Biome** - Linting and formatting
-- **Husky** - Git hooks for code quality
-- **Turborepo** - Optimized monorepo build system
+---
 
-## Getting Started
+## Stack
 
-First, install the dependencies:
+| Layer | Technology |
+|---|---|
+| Framework | Next.js (App Router) |
+| Language | TypeScript |
+| API | oRPC — end-to-end type-safe with OpenAPI |
+| Database | PostgreSQL |
+| ORM | Prisma |
+| Auth | Better-Auth |
+| Styling | Tailwind CSS + shadcn/ui |
+| Monorepo | Turborepo |
+| Runtime | Bun |
+| Linting | Biome |
+| Git Hooks | Husky |
 
-```bash
-bun install
-```
-
-## Database Setup
-
-This project uses PostgreSQL with Prisma.
-
-1. Make sure you have a PostgreSQL database set up.
-2. Update your `apps/web/.env` file with your PostgreSQL connection details.
-
-3. Apply the schema to your database:
-
-```bash
-bun run db:push
-```
-
-Then, run the development server:
-
-```bash
-bun run dev
-```
-
-Open [http://localhost:3001](http://localhost:3001) in your browser to see the fullstack application.
-
-## Git Hooks and Formatting
-
-- Initialize hooks: `bun run prepare`
-- Format and lint fix: `bun run check`
+---
 
 ## Project Structure
 
 ```
 recall/
 ├── apps/
-│   └── web/         # Fullstack application (Next.js)
+│   └── web/          # Next.js fullstack application
 ├── packages/
-│   ├── api/         # API layer / business logic
-│   ├── auth/        # Authentication configuration & logic
-│   └── db/          # Database schema & queries
+│   ├── api/          # Business logic and API layer
+│   ├── auth/         # Auth configuration
+│   └── db/           # Prisma schema and database queries
 ```
 
-## Available Scripts
+---
 
-- `bun run dev`: Start all applications in development mode
-- `bun run build`: Build all applications
-- `bun run check-types`: Check TypeScript types across all apps
-- `bun run db:push`: Push schema changes to database
-- `bun run db:generate`: Generate database client/types
-- `bun run db:migrate`: Run database migrations
-- `bun run db:studio`: Open database studio UI
-- `bun run check`: Run Biome formatting and linting
+## Getting Started
+
+**1. Install dependencies**
+
+```bash
+bun install
+```
+
+**2. Configure environment**
+
+Copy the example env file and fill in your database credentials:
+
+```bash
+cp apps/web/.env.example apps/web/.env
+```
+
+Update `apps/web/.env` with your PostgreSQL connection string:
+
+```env
+DATABASE_URL="postgresql://user:password@localhost:5432/recall"
+```
+
+**3. Push the database schema**
+
+```bash
+bun run db:push
+```
+
+**4. Start the development server**
+
+```bash
+bun run dev
+```
+
+Open [http://localhost:3001](http://localhost:3001) to see the app running.
+
+---
+
+## Scripts
+
+| Script | What it does |
+|---|---|
+| `bun run dev` | Start all apps in development mode |
+| `bun run build` | Build all apps for production |
+| `bun run check` | Run Biome formatting and lint fix |
+| `bun run check-types` | TypeScript type check across all packages |
+| `bun run db:push` | Push schema changes to the database |
+| `bun run db:generate` | Regenerate the Prisma client |
+| `bun run db:migrate` | Run database migrations |
+| `bun run db:studio` | Open Prisma Studio to inspect data |
+| `bun run prepare` | Initialise Husky git hooks |
+
+---
+
+## Code Quality
+
+Biome handles both formatting and linting in a single tool — no ESLint, no Prettier.
+
+Husky runs checks automatically on every commit. To run manually:
+
+```bash
+bun run check
+```
+
+---
+
+## License
+
+MIT
