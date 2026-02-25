@@ -1,0 +1,63 @@
+{
+  "name": "recall",
+  "private": true,
+  "workspaces": {
+    "packages": [
+      "apps/*",
+      "packages/*"
+    ],
+    "catalog": {
+      "dotenv": "^17.2.2",
+      "zod": "^4.1.13",
+      "typescript": "^5",
+      "next": "^16.1.1",
+      "@prisma/client": "^7.2.0",
+      "@orpc/server": "^1.12.2",
+      "@orpc/client": "^1.12.2",
+      "@orpc/openapi": "^1.12.2",
+      "@orpc/zod": "^1.12.2",
+      "better-auth": "^1.4.18",
+      "@polar-sh/better-auth": "^1.6.4"
+    }
+  },
+  "type": "module",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "check-types": "turbo check-types",
+    "dev:native": "turbo -F native dev",
+    "dev:web": "turbo -F web dev",
+    "db:push": "turbo -F @recall/db db:push",
+    "db:studio": "turbo -F @recall/db db:studio",
+    "db:generate": "turbo -F @recall/db db:generate",
+    "db:migrate": "turbo -F @recall/db db:migrate",
+    "db:start": "turbo -F @recall/db db:start",
+    "db:watch": "turbo -F @recall/db db:watch",
+    "db:stop": "turbo -F @recall/db db:stop",
+    "db:down": "turbo -F @recall/db db:down",
+    "check": "ultracite check",
+    "fix": "ultracite fix",
+    "prepare": "husky"
+  },
+  "dependencies": {
+    "@recall/env": "workspace:*",
+    "dotenv": "catalog:",
+    "zod": "catalog:"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "2.4.0",
+    "@recall/config": "workspace:*",
+    "@types/node": "^22.13.14",
+    "husky": "latest",
+    "lint-staged": "latest",
+    "turbo": "^2.6.3",
+    "typescript": "catalog:",
+    "ultracite": "7.2.3"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,jsonc,css,scss,md,mdx}": [
+      "bun x ultracite fix"
+    ]
+  },
+  "packageManager": "bun@1.3.8"
+}
