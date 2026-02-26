@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "recall",
+  title: "Recall",
   description: "recall",
 };
 
@@ -31,7 +31,6 @@ export default function RootLayout({
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Providers>
           <div className="grid grid-rows-[auto_1fr] h-svh">
-            <Header />
             {children}
           </div>
         </Providers>
