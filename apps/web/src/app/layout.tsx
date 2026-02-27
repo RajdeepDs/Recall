@@ -28,11 +28,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${dmSans.variable} ${dmMono.variable} antialiased`}>
+      <body className={`${dmSans.variable} ${dmMono.variable} antialiased min-h-svh`} >
         <Providers>
-          <div className="grid grid-rows-[auto_1fr] h-svh">
             {children}
-          </div>
         </Providers>
       </body>
     </html>
