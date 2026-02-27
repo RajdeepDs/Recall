@@ -1,0 +1,30 @@
+model Memory {
+  id          String       @id
+  title       String
+  description String
+  url         String?
+  note        String?
+  createdAt   DateTime     @default(now())
+  lastShownAt DateTime?
+  showCount   Int          @default(0)
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  reflections Reflection[]
+
+  @@index([userId])
+  @@map("memories")
+}
+
+model Reflection {
+  id        String   @id
+  userId    String
+  memoryId  String
+  content   String
+  createdAt DateTime @default(now())
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  memory    Memory   @relation(fields: [memoryId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([memoryId])
+  @@map("reflections")
+}
