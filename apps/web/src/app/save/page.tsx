@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Input } from "@/components/ui/input";
 
 export default function SavePage() {
 	return (
@@ -26,9 +27,10 @@ export default function SavePage() {
 					>
 						What do you want to remember?
 					</h1>
-					<p className="text-muted-foreground/40 text-xs sm:text-sm">
-						Paste a link or write something...
-					</p>
+					<Input
+						className="border-none text-center text-muted-foreground placeholder:text-center placeholder:text-muted-foreground/40 placeholder:text-xs focus:placeholder:text-transparent focus-visible:border-0 focus-visible:ring-0 sm:placeholder:text-sm dark:bg-transparent"
+						placeholder="Paste a link or write something..."
+					/>
 				</section>
 			</main>
 		</div>
