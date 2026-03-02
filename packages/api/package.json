@@ -19,6 +19,11 @@
     "@recall/db": "workspace:*",
     "@recall/env": "workspace:*",
     "dotenv": "catalog:",
+    "metascraper": "^5.49.24",
+    "metascraper-description": "^5.49.24",
+    "metascraper-image": "^5.49.24",
+    "metascraper-title": "^5.49.24",
+    "metascraper-url": "^5.49.24",
     "next": "catalog:",
     "zod": "catalog:"
   },
